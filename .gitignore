@@ -1,0 +1,4 @@
+/vendor
+.idea
+push.sh
+composer.phar

@@ -1,0 +1,29 @@
+{
+  "name": "sarfraznawaz2005/composer-cost",
+  "description": "Displays cost/size of each composer package installed.",
+  "keywords": [
+    "composer",
+    "plugin",
+    "cost",
+    "size"
+  ],
+  "license": "MIT",
+  "type": "composer-plugin",
+  "authors": [
+    {
+      "name": "Sarfraz Ahmed",
+      "email": "sarfraznawaz2005@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ComposerCost\\": "src/"
+    }
+  },
+  "require": {
+    "composer-plugin-api": "^1.1"
+  },
+  "extra": {
+    "class": "ComposerCost\\ComposerCost"
+  }
+}

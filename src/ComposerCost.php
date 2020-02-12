@@ -55,6 +55,7 @@ class ComposerCost implements PluginInterface, EventSubscriberInterface
      */
     private function calculate()
     {
+        $total = 0;
         $folders = [];
         $sizes = [];
         $vendorDir = getcwd() . DIRECTORY_SEPARATOR . 'vendor';
@@ -62,6 +63,7 @@ class ComposerCost implements PluginInterface, EventSubscriberInterface
         if (file_exists($vendorDir) && is_readable($vendorDir)) {
             foreach (glob($vendorDir . '/*', GLOB_NOSORT) as $path) {
                 if (!is_file($path)) {
+                    $total += $this->dirSize($path);
                     $sizes[basename($path)] = $this->dirSize($path);
                 }
             }
@@ -75,6 +77,9 @@ class ComposerCost implements PluginInterface, EventSubscriberInterface
         foreach ($sizes as $folder => $size) {
             $folders[] = ['Folder' => $folder, 'Size' => $this->humanSize($size)];
         }
+        
+        // total
+        $folders[] = ['Folder' => 'TOTAL', 'Size' => $this->humanSize($total)];
 
         $this->io->write('');
         $this->io->write('<fg=black;bg=green> Vendor Cost </>');

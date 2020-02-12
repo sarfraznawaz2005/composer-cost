@@ -2,7 +2,7 @@
 
 # composer-cost
 
-Simple composer plugin that displays size of each folder under `vendor` to help you with which package is taking the most disk space.
+Simple composer plugin that displays size of each folder under `vendor` to help you with which package is taking the most disk space. It will run automatically when you use `composer install` or `composer update` command.
 
 ## Screenshot
 

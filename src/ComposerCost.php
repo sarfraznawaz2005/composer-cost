@@ -14,6 +14,10 @@ class ComposerCost implements PluginInterface, EventSubscriberInterface
     protected $io;
     protected $composer;
 
+     public function uninstall(Composer $composer, IOInterface $io)
+    {
+    }
+    
     /**
      * {@inheritdoc}
      */
